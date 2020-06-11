@@ -1,5 +1,7 @@
 # itch-bundle-viewer
 
+View sorted bundles from https://itch.io/
+
 ## Project setup
 ```
 npm install
