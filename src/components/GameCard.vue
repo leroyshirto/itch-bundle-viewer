@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-image">
-        <a :href="gameData.url">
+        <a :href="gameData.url" target="_blank">
           <figure class="image is-4by3">
           <img :src="gameData.cover" alt="Game Cover" loading="lazy">
           </figure>
@@ -11,7 +11,7 @@
         <div class="media">
         <div class="media-content">
             <p class="title is-4">{{gameData.title}}</p>
-            <p class="subtitle is-6"><a :href="gameData.user.url">{{gameData.user.name}}</a> Ratings: {{gameData.ratings_count}}</p>
+            <p class="subtitle is-6"><a :href="gameData.user.url" target="_blank">{{gameData.user.name}}</a> Ratings: {{gameData.ratings_count}} <br> Price: {{formatedPrice(gameData.price)}}</p>
         </div>
         </div>
 
@@ -30,6 +30,15 @@ export default {
   name: 'GameCard',
   props: {
     gameData: Object
+  },
+  methods: {
+    formatedPrice (price) {
+      if (!price) {
+        return 'FREE'
+      }
+
+      return price
+    }
   }
 }
 </script>
